@@ -1,0 +1,23 @@
+p{
+    color:peru;
+    font-size: 20pt;
+}
+
+
+#p1{
+    color:cornflowerblue;
+}
+
+.tag_amarela{
+    color:yellow;
+}
+
+div p{
+    color:fuchsia
+    
+}
+
+p:hover{
+    background-color: gold;
+    text-align: center;
+}

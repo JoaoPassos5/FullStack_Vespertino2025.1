@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Aula 1</title>
+        <meta charset="UTF-8">
+    </head>
+    
+    <body>
+        <!-- MEU PRIMEIRO CÓDIGO HTML -->
+
+        <h1>Aula 1</h1>
+        <p>Hello World</p>
+
+        <h2>Exemplos de lista:</h2>
+        <p>Cores:</p>
+        <ol>
+            <li>Azul</li>
+            <li>PRETO</li>
+        </ol>
+
+        <p>Números</p>
+        <ol start="3">
+            <li>6</li>
+            <li>dois</li>
+            <li>XVII</li>
+        </ol>
+
+        <p>Comida</p>
+        <ol start="6">
+            <li>Arroz</li>
+            <li>Fijão</li>
+        </ol>
+
+        <h3>Não Ordenadas</h3>
+
+        <p>Frutas</p>
+        <ul>
+            <li>Banana</li>
+            <li>Melancia</li>
+            <li>Uva</li>
+        </ul>
+        
+        <h2>Imagens</h2>
+        <img src="images.jfif" alt="Critica Social Foda" width="500" weight="500">
+
+        <h2>Exemplos de Links:</h2>
+        <a href="http://portal.fei.edu.br">FEI</a>
+        <br>
+        <br>
+        <a href="Contato.html">Contatos</a>
+
+        <h3>Exemplos de Iframe</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.6486945443503!2d-46.58197282378363!3d-23.72423626759788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce4158ef9c7c05%3A0x776b798985695f52!2sFEI%20-%20Campus%20S%C3%A3o%20Bernardo%20do%20Campo!5e0!3m2!1spt-BR!2sbr!4v1739299011321!5m2!1spt-BR!2sbr" width="560" height="315" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/fotBg1nGrgA?si=1WcBko9wwFylIc8k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <h3>Exemplo de Tabela</h3>
+
+        <table border="2">
+            <tr>
+                <td>Pai</td>
+                <td>Mãe</td>
+            </tr>
+            <tr>
+                <td>Filho</td>
+                <td>Filha</td>
+            </tr>
+        </table>
+        
+
+
+  
+
+    </body>
+</html>
