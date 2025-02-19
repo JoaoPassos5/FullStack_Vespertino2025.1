@@ -2,4 +2,34 @@ body {
     background-image:linear-gradient(to left, Cornsilk, LemonChiffon );
 }
 
+#azu{
+    color:blue
+}
+
+
+#rocho{
+    color:rgb(202, 19, 202)
+}
+
+#amarilho{
+    color:yellow
+}
+
+#azu:hover{
+    background-color: orange;
+    font-size: 18px;
+}
+
+#rocho:hover{
+    background-color: orange;
+    font-size: 18px;
+}
+
+#amarilho:hover{
+    background-color: orangered;
+    font-size: 18px;
+}
+
+
+
 
