@@ -1,8 +1,63 @@
 .solid{border: 100px solid bisque;
-    background-color: bisque;}
+    text-align: center;
+    background-color: bisque;
+}
 
 #verdi{
     color:green ;
 }
+
+.imagem1{
+    position: absolute;
+    right: 50px;
+    top: 10px;
+}
+
+.imagem2{
+    position: absolute;
+    left: 50px;
+    top: 10px;
+}
+
+.solid2{border: 20px solid lightskyblue;
+       background-color: lightskyblue;
+      
+}
+
+.cinsa{
+    background-color: lightgray;
+}
+
+.introducao{
+    text-align: center;
+}
+
+#livro1{
+    margin-left: 310px;
+   
+    display: inline;
+}
+ 
+#livro2{
+     
+    display: inline;
+
+    margin-left: 320px;
+    
+    
+}
+
+#livro3{
+    
+    
+    display: inline;
+}
+
+.greey{
+    color: indigo;
+}
+
+
+
     
     
