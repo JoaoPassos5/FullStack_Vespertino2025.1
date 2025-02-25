@@ -1,0 +1,24 @@
+.dotted{border: 5px dotted teal;}
+.dashed{border: 5px dashed green}
+.solid{border: 5px solid plum;}
+.radius{border-radius: 20px;}
+.inline{display: inline;}
+.padding{padding: 10px;}
+.shadow{box-shadow: 5px 5px grey;}
+
+#div1{ background-color: antiquewhite;
+    display: inline;
+    border: 2px solid black;
+    position: relative;
+    top: 15px;
+    left: 15px;
+
+}
+
+#contato{
+    background-color: greenyellow;
+    position:fixed;
+    bottom: 0px;
+    right:0px ;
+    z-index: -1;
+}
