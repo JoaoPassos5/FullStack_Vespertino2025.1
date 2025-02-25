@@ -30,6 +30,11 @@ body {
     font-size: 18px;
 }
 
+.solid{border: 5px solid black;}
+.padding{padding: 5px;}
+.shadow{box-shadow: 3px 3px gray;}
+.radius{border-radius: 10px;}
+
 
 
 
