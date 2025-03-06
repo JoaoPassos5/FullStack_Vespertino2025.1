@@ -1,6 +1,7 @@
 .solid{border: 100px solid bisque;
     text-align: center;
     background-color: bisque;
+    
 }
 
 #verdi{
@@ -33,28 +34,64 @@
 }
 
 #livro1{
-    margin-left: 310px;
+    margin-left: 200px;
    
-    display: inline;
+    
 }
  
 #livro2{
      
-    display: inline;
+    
 
-    margin-left: 320px;
+    margin-left: 500px;
     
     
 }
 
 #livro3{
     
+    margin-left: 200px;
+
     
-    display: inline;
 }
 
 .greey{
     color: indigo;
+    
+    font-size: 20pt;
+    
+}
+
+#home{
+    color: indigo;
+    margin-left: 400px;
+    display: inline;
+}
+
+#liv{
+    color: indigo;
+    margin-left: 450px;
+    display: inline;
+}
+
+#videos{
+    color:indigo;
+    margin-left: 200px;
+    display: inline;
+}
+
+#cont{
+    color:indigo;
+    margin-left: 200px;
+    display: inline;
+}
+
+#anoss{
+    margin-left: 450px;
+}
+
+#mapa{
+    margin-left: 300px;
 }
 
 
