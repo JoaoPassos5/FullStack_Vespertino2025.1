@@ -34,23 +34,32 @@
 }
 
 #livro1{
-    margin-left: 200px;
-   
+    margin-right: 35%;
+    margin-left: auto;
+    display: block;
+   transform: translateX(-200%);
     
 }
  
 #livro2{
      
-    
+    display: block;
 
-    margin-left: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(-100%);
     
     
 }
 
 #livro3{
+    display: block;
     
-    margin-left: 200px;
+    margin-left: auto;
+    margin-right: 25%;
+    transform: translateX(-500%);
+    transform: translateY(-200%);
+    
 
     
 }
@@ -92,6 +101,17 @@
 
 #mapa{
     margin-left: 300px;
+}
+
+.tabela{
+    border-style: dashed;
+    font-size: xx-large; 
+    text-align: center;
+}
+
+.caixa{
+    text-align: center;
+    background-color:yellow ;
 }
 
 
