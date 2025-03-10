@@ -1,11 +1,12 @@
 .solid{border: 100px solid bisque;
     text-align: center;
     background-color: bisque;
-    
+    border-width: 75px;
 }
 
 #verdi{
     color:green ;
+    font-size: 40pt;
 }
 
 .imagem1{
@@ -22,7 +23,6 @@
 
 .solid2{border: 20px solid lightskyblue;
        background-color: lightskyblue;
-      
 }
 
 .cinsa{
@@ -31,37 +31,26 @@
 
 .introducao{
     text-align: center;
+    font-size: xx-large;
 }
 
 #livro1{
-    margin-right: 35%;
-    margin-left: auto;
-    display: block;
-   transform: translateX(-200%);
-    
+    display: inline;
+    margin-left: 500px;
+
 }
  
 #livro2{
      
-    display: block;
-
-    margin-left: auto;
-    margin-right: auto;
-    transform: translateY(-100%);
-    
-    
+    display: inline;
+    margin-right: 60px;
+    margin-left: 60px;
 }
 
 #livro3{
-    display: block;
-    
-    margin-left: auto;
-    margin-right: 25%;
-    transform: translateX(-500%);
-    transform: translateY(-200%);
-    
-
-    
+    display: inline;
+    margin-right: 500px;
+  
 }
 
 .greey{
@@ -73,40 +62,47 @@
 
 #home{
     color: indigo;
-    margin-left: 400px;
+    margin-left:600px;
     display: inline;
 }
 
 #liv{
     color: indigo;
-    margin-left: 450px;
+    margin-left:80px;
+    margin-right:80px;
     display: inline;
 }
 
 #videos{
     color:indigo;
-    margin-left: 200px;
+    margin-left:80px;
+    margin-right:80px;
     display: inline;
 }
 
 #cont{
     color:indigo;
-    margin-left: 200px;
+    margin-left: 100px;
     display: inline;
 }
 
 #anoss{
-    margin-left: 450px;
+    display: inline;
+    margin-left:450px;
+    margin-right:50px;
 }
 
 #mapa{
-    margin-left: 300px;
+    display: inline;
+    margin-left:50px;
+    margin-right:50px;
 }
 
 .tabela{
     border-style: dashed;
     font-size: xx-large; 
     text-align: center;
+   
 }
 
 .caixa{
