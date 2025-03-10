@@ -114,11 +114,14 @@
     font-size: 25pt;
     height: 200px;
     text-align: center;
+    font-family: "Comic Sans MS";
 }
 
 .imagem3{
     position: absolute;
     left: 0;
+   
+    
 }
 
 .imagem4{
@@ -126,9 +129,6 @@
     right: 0;
 }
 
-#ww3{
-    text-align: top;
-}
 
 
 
