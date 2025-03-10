@@ -103,14 +103,45 @@
 
 .tabela{
     border-style: dashed;
-    font-size: xx-large; 
+    height: 150px;
+    width:400px; 
     text-align: center;
-   
+    margin: 20px auto;
+    border: dashed red;
+}
+
+#nomi{
+    color: red;
+}
+
+#emaio{
+    color: red;
 }
 
 .caixa{
-    text-align: center;
+    
     background-color:yellow ;
+    width: 500px;
+    height: 100px;
+    margin: 20px auto;
+}
+
+.last{
+    background-color: bisque;
+    margin: 20px auto;
+    font-size: 25pt;
+    height: 200px;
+    text-align: center;
+}
+
+.imagem3{
+    position: absolute;
+    left: 0;
+}
+
+.imagem4{
+    position: absolute;
+    right: 0;
 }
 
 
