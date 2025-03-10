@@ -1,12 +1,15 @@
 .solid{border: 100px solid bisque;
     text-align: center;
     background-color: bisque;
-    border-width: 75px;
+    width: 100%;
+    height: 250px;
+    border: solid 5px darkblue;
 }
 
 #verdi{
     color:green ;
     font-size: 40pt;
+    transform: translateY(80%);
 }
 
 .imagem1{
