@@ -1,0 +1,38 @@
+.entrada{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.frases{
+    text-align: center;
+}
+
+
+.barra{
+    border: 1px solid gray;
+
+}
+
+.imagis{
+    display: flex;
+    align-items: center;
+}
+
+.sim{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+}
+
+.entrada2{
+    display: flex;
+    flex-flow: column;
+}
+
+
+
+
+
+
+
