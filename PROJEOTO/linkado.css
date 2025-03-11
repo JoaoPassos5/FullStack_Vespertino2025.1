@@ -121,12 +121,16 @@
     position: absolute;
     left: 0;
    
-    
 }
 
 .imagem4{
     position: absolute;
     right: 0;
+}
+
+#semestre{
+    transform: translateY(200%);
+    font-size: 15pt;
 }
 
 
