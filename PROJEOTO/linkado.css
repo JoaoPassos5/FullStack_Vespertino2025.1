@@ -26,6 +26,10 @@
 
 .solid2{border: 20px solid lightskyblue;
        background-color: lightskyblue;
+       display: flex;
+       justify-content: space-evenly;
+       border-width: 2px;
+       color: darkred;
 }
 
 .cinsa{
@@ -64,29 +68,27 @@
 }
 
 #home{
-    color: indigo;
-    margin-left:600px;
-    display: inline;
+    color: darkred;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 #liv{
-    color: indigo;
-    margin-left:80px;
-    margin-right:80px;
-    display: inline;
+    color: darkred;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 #videos{
-    color:indigo;
-    margin-left:80px;
-    margin-right:80px;
-    display: inline;
+    color:darkred;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 #cont{
-    color:indigo;
-    margin-left: 100px;
-    display: inline;
+    color:darkred;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 #anoss{
@@ -137,6 +139,7 @@
 .imagem3{
     position: absolute;
     left: 0;
+ 
 }
 
 .imagem4{
@@ -144,6 +147,16 @@
     right: 0;
 }
 
+.ww{
+    color: darkred;
+    text-align: center;
+    padding: 50px;
+   
+}
+
+.palavras{
+    align-items: center;
+}
 
 
     
