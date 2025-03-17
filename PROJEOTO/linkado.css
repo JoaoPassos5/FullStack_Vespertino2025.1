@@ -28,17 +28,9 @@
 .solid2{border: 20px solid lightskyblue;
        background-color: lightskyblue;
        display: flex;
-<<<<<<< HEAD
        justify-content: space-evenly;
        border-width: 2px;
        color: darkred;
-=======
-       justify-content: space-evenly; 
-       align-items: center;
-       padding: 5px;
-       height: 5px;
-       color: indigo;
->>>>>>> 2e740413dfcdbb15474fdfeaa7f77b7266a6db86
 }
 
 .cinsa{
@@ -76,33 +68,6 @@
     
 }
 
-<<<<<<< HEAD
-#home{
-    color: darkred;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-#liv{
-    color: darkred;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-#videos{
-    color:darkred;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-#cont{
-    color:darkred;
-    display: flex;
-    justify-content: space-evenly;
-}
-=======
-
->>>>>>> 2e740413dfcdbb15474fdfeaa7f77b7266a6db86
 
 #anoss{
     display: inline;
@@ -153,11 +118,7 @@
 .imagem3{
     position: absolute;
     left: 0;
-<<<<<<< HEAD
- 
-=======
-   
->>>>>>> 2e740413dfcdbb15474fdfeaa7f77b7266a6db86
+
 }
 
 .imagem4{
@@ -165,7 +126,7 @@
     right: 0;
 }
 
-<<<<<<< HEAD
+
 .ww{
     color: darkred;
     text-align: center;
@@ -173,17 +134,14 @@
    
 }
 
-.palavras{
-    align-items: center;
-}
-=======
+
+
 #semestre{
     transform: translateY(200%);
     font-size: 15pt;
 }
 
 
->>>>>>> 2e740413dfcdbb15474fdfeaa7f77b7266a6db86
 
 
     
