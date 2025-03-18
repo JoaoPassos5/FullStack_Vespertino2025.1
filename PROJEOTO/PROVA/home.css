@@ -1,0 +1,99 @@
+.inicio{border: 100px solid rgb(116, 116, 240) ;
+    text-align: right;
+    border-width: 10px;
+    background-color: rgb(116, 116, 240);
+    color: white;
+  
+}
+
+.barra{
+    font-size: 20px;
+}
+
+.imagi{
+    height: 180px;
+    width: 150px;
+}
+
+
+
+#orangi{
+    background-color: orange;
+    border: 10px solid orange;
+    color: white;
+    display: inline;
+    
+}
+
+#predio{
+    display: flex;
+    justify-content: center;
+    width: 400px;
+}
+
+.indio{
+   
+    
+}
+.sao{
+    color: blue;
+    font-size: 50px;
+}
+
+.bernardo{
+    color: gray;
+    font-size: 50px;
+}
+
+.do{
+    color: orange;
+    font-size: 50px;
+}
+
+.campo{
+    color: green;
+    font-size: 50px;
+}
+
+.cep{
+    color: orange;
+}
+
+#grin{
+    background-color: green;
+    border:  solid green;
+    
+    color: white;
+    display: inline;
+    margin: 300px;
+}
+
+.centro{
+    text-align: center;
+    margin-left: -650px;
+    margin-top: -350px;
+}
+
+#blu{
+    color: white;
+    background-color:rgb(116, 116, 240);
+    border: 10px solid rgb(116, 116, 240);
+    
+}
+
+.socorro{
+    text-align: center;
+    margin-top: -200px;
+    margin-left: 500px;
+}
+
+.adm{
+    text-align: center;
+    margin-top: 200px;
+    margin-left: -700px;
+    background-color: green;
+   color: white;
+    
+    
+}
+
