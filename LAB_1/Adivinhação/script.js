@@ -15,9 +15,6 @@ function guess(){
                 resultElement.style.color = "red";
     }
     
-    document.getElementById('num0').style.width = '300px';
-    document.getElementById('num0').style.height = '130px'; 
-    document.getElementById('num0').style.fontSize = '116px'; 
     }
 
     
