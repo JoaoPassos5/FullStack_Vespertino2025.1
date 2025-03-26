@@ -1,0 +1,13 @@
+body{
+    background-image:linear-gradient(to left, Cornsilk, LemonChiffon );
+    align-items: center;
+}
+
+.position{
+    display: flex; flex-direction: column; width: 300px;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    margin-right: auto;
+}
