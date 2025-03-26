@@ -15,9 +15,12 @@ function guess(){
                 resultElement.style.color = "red";
     }
     
-    document.getElementById('num0').style.width = '300px';
-    document.getElementById('num0').style.height = '130px'; 
-    document.getElementById('num0').style.fontSize = '116px'; 
+
+    //Os códigos abaixo fazem com que quando eu envie um número, a caixa do número pegasse os tamanhos dos comandos, comentei pq eu achei interessante.
+
+    //document.getElementById('num0').style.width = '300px';
+    //document.getElementById('num0').style.height = '130px'; 
+    //document.getElementById('num0').style.fontSize = '116px'; 
     }
 
     
