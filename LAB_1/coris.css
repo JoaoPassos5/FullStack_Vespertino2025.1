@@ -35,6 +35,17 @@ body {
 .shadow{box-shadow: 3px 3px gray;}
 .radius{border-radius: 10px;}
 
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+.iframecontainer{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 300px;
+}
+
 
 
 
