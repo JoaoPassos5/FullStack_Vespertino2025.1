@@ -11,7 +11,7 @@ body{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-150%, -50%);
     background-color: white;
 }
 
@@ -31,8 +31,28 @@ body{
     justify-content: center;
     height: 10vh; 
     font-family: 'Comic Sans MS';
+    transform: translate(-16%, -50%);
 }
 
+#canvas2{border: 1px solid black ;
+    display: block;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(20%, -50%);
+    background-color: white;
+
+}
+
+#img2{display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    height: 10vh; 
+    font-family: 'Comic Sans MS';
+    transform: translate(11%, -175%);
+}
 
 
 

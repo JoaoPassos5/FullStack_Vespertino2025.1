@@ -65,6 +65,68 @@ desenhar_arco(150,120,14,0,2,'cyan','blue');
 
 escrever("Canvas",115,50,'#323232',20);
 
+let canvas2 = document.getElementById('canvas2');
+let ctx2 = canvas2.getContext('2d');
+
+function desenha_quadrado(x, y, largura, altura, cor) {
+    ctx2.fillStyle = cor;
+    ctx2.fillRect(x, y, largura, altura);
+}
+
+function desenha_arco(x,y,tamanho,a,b,cor,cor2){
+    ctx2.fillStyle = cor; 
+    ctx2.strokeStyle = cor2;
+    ctx2.beginPath();
+    ctx2.arc(x, y, tamanho, a * Math.PI, b * Math.PI);
+    ctx2.fill();
+    ctx2.stroke();
+}
+
+function desenha_linha(x1, y1, x2, y2, cor) {
+    ctx2.beginPath();
+    ctx2.moveTo(x1, y1);
+    ctx2.lineTo(x2, y2);
+    ctx2.strokeStyle = cor;
+    ctx2.stroke();
+}
+
+desenha_linha(0,200,400,200,'grey');
+
+//FUNDO DO CANVAS
+ctx2.fillStyle = 'grey'; 
+ctx2.fillRect(0, 200, canvas.width, canvas.height - 200);
+ctx2.fillStyle = 'aquamarine'; 
+ctx2.fillRect(0, 0, canvas.width, 200);
+
+desenha_arco(0,200,40,1,0,'#4A90E2','#4A90E2');
+desenha_quadrado(0,200,40,100,'#4A90E2')
+desenha_quadrado(0,260,100,40,'#4A90E2');
+
+
+
+
+//ARVORE DIREITA
+desenha_quadrado(250,200,20,60,'saddlebrown');
+desenha_arco(260,190,30,0,2,'green','green');
+
+//ARVORE ESQUERDA
+desenha_quadrado(40,140,20,60,'saddlebrown');
+desenha_arco(50,130,30,0,2,'green','green');
+
+//CASA
+desenha_quadrado(110,110,95,90,'saddlebrown');//PAREDE
+desenha_quadrado(150,155,17,45,'#4B2E17');//PORTA
+desenha_quadrado(165,125,30,30,'#4FC3F7');//ESPELHO DIREITO
+desenha_quadrado(120,125,30,30,'#4FC3F7');//ESPELHO ESQUERDO
+desenha_linha(100,120,160,40,'#F45F44');
+
+
+
+
+
+
+
+
 
 
 
