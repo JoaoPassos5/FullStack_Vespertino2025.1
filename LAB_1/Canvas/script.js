@@ -63,6 +63,9 @@ desenhar_linha(0,0,150,150,'blue');
 
 desenhar_arco(150,120,14,0,2,'cyan','blue');
 
+desenhar_arco(160,150,74,1.72,2,'white','green');//RISQUINHO DIREITO
+desenhar_arco(134,150,70,1,1.3,'white','green');//RISQUINHO ESQUERDO
+
 escrever("Canvas",115,50,'#323232',20);
 
 let canvas2 = document.getElementById('canvas2');
@@ -88,11 +91,10 @@ function desenha_linha(x1, y1, x2, y2, cor) {
     ctx2.lineTo(x2, y2);
     ctx2.strokeStyle = cor;
     ctx2.stroke();
+    
 }
 
-var x1 = 110, y1 = 110;  // Vértice superior
-var x2 = 160, y2 = 160;  // Vértice inferior esquerdo
-var x3 = 205, y3 = 60;  // Vértice inferior direito
+
 
 desenha_linha(0,200,400,200,'grey');
 
@@ -127,8 +129,20 @@ desenha_quadrado(120,125,30,30,'#4FC3F7');//ESPELHO ESQUERDO
 
 desenha_arco(250,50,40,0,2,'yellow','yellow');
 
-desenha_linha(x1,y1,x2,y3,'brown');
-desenha_linha(x3,x1,x2,y3,'brown');
+//TRIANGULO
+desenha_linha(110,110,160,60,'salmon');
+desenha_linha(205,110,160,60,'salmon');
+desenha_linha(110,110,205,110,'salmon');
+
+//COR DO TRIANGULO
+ctx2.fillStyle = 'salmon'; 
+ctx2.beginPath(); 
+ctx2.moveTo(110, 110); 
+ctx2.lineTo(160, 60);  
+ctx2.lineTo(205, 110); 
+ctx2.closePath(); 
+ctx2.fill(); 
+ctx2.stroke(); 
 
 
 
