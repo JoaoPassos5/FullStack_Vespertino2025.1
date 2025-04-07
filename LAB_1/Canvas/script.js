@@ -118,7 +118,9 @@ desenha_quadrado(110,110,95,90,'saddlebrown');//PAREDE
 desenha_quadrado(150,155,17,45,'#4B2E17');//PORTA
 desenha_quadrado(165,125,30,30,'#4FC3F7');//ESPELHO DIREITO
 desenha_quadrado(120,125,30,30,'#4FC3F7');//ESPELHO ESQUERDO
-desenha_linha(100,120,160,40,'#F45F44');
+
+
+desenha_arco(250,50,40,0,2,'yellow','yellow');
 
 
 

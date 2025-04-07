@@ -22,6 +22,8 @@ body{
     justify-content: center;
     height: 20vh; 
     font-family: 'Comic Sans MS';
+    transform: translateX(-3%);
+
 }
 
 #img1{
