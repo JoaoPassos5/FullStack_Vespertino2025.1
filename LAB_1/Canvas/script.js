@@ -90,6 +90,10 @@ function desenha_linha(x1, y1, x2, y2, cor) {
     ctx2.stroke();
 }
 
+var x1 = 110, y1 = 110;  // Vértice superior
+var x2 = 160, y2 = 160;  // Vértice inferior esquerdo
+var x3 = 205, y3 = 60;  // Vértice inferior direito
+
 desenha_linha(0,200,400,200,'grey');
 
 //FUNDO DO CANVAS
@@ -101,6 +105,7 @@ ctx2.fillRect(0, 0, canvas.width, 200);
 desenha_arco(0,200,40,1,0,'#4A90E2','#4A90E2');
 desenha_quadrado(0,200,40,100,'#4A90E2')
 desenha_quadrado(0,260,100,40,'#4A90E2');
+desenha_arco(100,300,40,1,0,'#4A90E2','#4A90E2');
 
 
 
@@ -121,6 +126,13 @@ desenha_quadrado(120,125,30,30,'#4FC3F7');//ESPELHO ESQUERDO
 
 
 desenha_arco(250,50,40,0,2,'yellow','yellow');
+
+desenha_linha(x1,y1,x2,y3,'brown');
+desenha_linha(x3,x1,x2,y3,'brown');
+
+
+
+
 
 
 
