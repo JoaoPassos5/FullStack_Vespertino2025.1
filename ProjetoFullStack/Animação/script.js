@@ -33,8 +33,8 @@ document.addEventListener('mousemove',function(evento){
     sahur.x = mouseX - sahur.largura / 2; 
     sahur.y = mouseY - sahur.altura / 2;
 
-     sahur.x = Math.max(0, Math.min(sahur.x, canvas.width - sahur.largura));
-     sahur.y = Math.max(0, Math.min(sahur.y, canvas.height - sahur.altura));
+     sahur.x = Math.max(0, Math.min(sahur.x, 300 - sahur.largura));
+     sahur.y = Math.max(0, Math.min(sahur.y, 300 - sahur.altura));
 
     
     sahur.desenha(ctx10);
