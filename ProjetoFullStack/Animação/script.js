@@ -1,7 +1,7 @@
 class Tun {
     constructor(src, x, y, largura, altura) {
-        this.img = new Image(); // Cria um novo objeto de imagem
-        this.img.src = 'tun.jpg'; // Define o caminho da imagem
+        this.img = new Image(); 
+        this.img.src = 'tun.jpg'; 
         this.x = x;
         this.y = y;
         this.largura = largura;
@@ -10,7 +10,7 @@ class Tun {
     desenha(contexto) {
         contexto.clearRect(0,0,300,300)
         contexto.beginPath();
-        contexto.drawImage(this.img, this.x, this.y, this.largura, this.altura); // Desenha a imagem
+        contexto.drawImage(this.img, this.x, this.y, this.largura, this.altura); 
         contexto.closePath();
     }
 }
@@ -24,9 +24,9 @@ let sahur = new Tun('tun.jpg', 0, 0, 50, 50);
 
 
 document.addEventListener('mousemove',function(evento){
-    let rect = canvas.getBoundingClientRect(); // Obtem os limites do canvas
-    let mouseX = evento.clientX - rect.left; // Coordenada X do mouse relativa ao canvas
-    let mouseY = evento.clientY - rect.top;  // Coordenada Y do mouse relativa ao canvas
+    let rect = canvas.getBoundingClientRect(); 
+    let mouseX = evento.clientX - rect.left; 
+    let mouseY = evento.clientY - rect.top;  
         
     
    //CENTRALIZAR
