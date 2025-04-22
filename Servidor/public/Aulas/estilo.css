@@ -1,0 +1,11 @@
+body{
+    background-color: bisque;
+
+}
+
+div{
+    background-color: ivory;
+    padding: 10px;
+    margin: 10px;
+    display: inline;
+}
