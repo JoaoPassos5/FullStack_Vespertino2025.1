@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8">
+
+    </head>
+    <body>
+        <% if (loginValido) { %>
+            <h2>Login Concluído</h2>
+            <p>Bem-vindo, <%= usuario %>!</p>
+        <% } else { %>
+            <h2>Usuário ou Senha Incorretos</h2>
+        <% } %>
+    
+    </body>
+</html>
