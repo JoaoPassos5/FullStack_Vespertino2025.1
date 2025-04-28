@@ -10,7 +10,7 @@ var app = express();
 app.use(express.static('./public'))
 
 
-app.use(bodyParser.urlencoded({extended: false }))
+app.use(bodyParser.urlencoded({extended: true }))
 app.use(bodyParser.json())
 app.set('view engine', 'ejs')
 app.set('views', './views');
@@ -56,8 +56,9 @@ app.post("/cadastra", function(requisicao, resposta){
     let senha = requisicao.body.senha;
     let nasc = requisicao.body.nascimento;
 
+    console.log(nome, login , senha, nasc)
+    resposta.render('resposta1');
     
-    resposta.render('resposta1',{nome , login, senha, nasc});
 
 
 })
@@ -66,13 +67,17 @@ app.post("/login", function(requisicao, resposta){
     resposta.redirect("login.html")
 });
 
+app.get('/login', (requisicao, resposta) => {
+    resposta.sendFile(__dirname + '/Login.html');
+});
+
 app.post('/login', (requisicao, resposta) => {
     const { login, senha } = requisicao.body;
 
-    
-    if (login === usuarioCorreto && senha === senhaCorreta) {
-        resposta.render('resposta2', { loginValido: true, usuario: login });
+    // Aqui você valida o login e a senha
+    if (login === 'admin' && senha === '1234') {
+        resposta.render('resposta', { mensagem: 'Login efetuado com sucesso!' });
     } else {
-        resposta.render('resposta2', { loginValido: false });
+        resposta.render('resposta', { mensagem: 'Login inválido. Tente novamente.' });
     }
 });

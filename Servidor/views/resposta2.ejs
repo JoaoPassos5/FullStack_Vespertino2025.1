@@ -6,12 +6,7 @@
 
     </head>
     <body>
-        <% if (loginValido) { %>
-            <h2>Login Concluído</h2>
-            <p>Bem-vindo, <%= usuario %>!</p>
-        <% } else { %>
-            <h2>Usuário ou Senha Incorretos</h2>
-        <% } %>
-    
+        <h1><%= mensagem %></h1>
+        <a href="/login">Voltar para Login</a>
     </body>
 </html>
