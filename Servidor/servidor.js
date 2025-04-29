@@ -3,6 +3,14 @@ require("colors");
 var http = require("http");
 var express = require("express");
 var path = require("path");
+var mongodb = require("mongodb");
+
+const MongoClient = mongodb.MongoClient;
+const uri = 'mongodb+srv://jovifepassos:RjAeAeDQRkqgvcmR@passosfullstack.r6acicp.mongodb.net/?retryWrites=true&w=majority&appName=PassosFullStack'
+const client = new MongoClient(uri, { useNewUrlParser: true });
+
+var dbo = client.db("PassosFullStack");
+var usuarios = dbo.collection("usuarios");
 
 
 
@@ -42,17 +50,54 @@ app.post("/cadastrar",function(requisicao, resposta){
     let login = requisicao.body.login;
     let senha = requisicao.body.senha;
     let nasc = requisicao.body.nascimento;
-    
-
     console.log(nome, login, senha, nasc);
 
-    resposta.render("resposta", {nome, login, senha, nascimento: nasc});
+    var data = { db_nome: nome, db_login: login, db_senha: senha , db_nasc: nasc };
 
-})
+    usuarios.insertOne(data, function (err) {
+        console.log(err)
+        if (err) {
+          resposta.render("resposta", {status: "Erro", nome, login, senha, nasc})
+        }else {
+          resposta.render("resposta", {status: "Sucesso", nome, login, senha, nasc})        
+        };
+      });
+
+      
+
+    });
+  
+
+    
+
+
 
 app.get("/for_ejs", function(requisicao, resposta){
     let valor = requisicao.query.valor;
     resposta.render("exemplo_for",{valor});
+})
+
+app.post('/logar', function(requisicao, resposta){
+    let login = requisicao.body.login;
+    let senha = requisicao.body.senha;
+    console.log(login, senha);
+
+    var data = {db_login: login, db_senha: senha}
+
+    usuarios.find(data).toArray(function(err , item){
+        console.log(item)
+        if(item.length == 0){
+            resposta.render("resposta_login", {status: "usuario/senha não encontrado"})
+                       
+        }else if(err){
+            resposta.render("resposta_login", {status: "erro ao logar"})
+
+        }else{
+            resposta.render("resposta_login", {status: "usuario "+login+" logado" })
+
+        }
+    })
+
 })
 
 let usuario = {};
@@ -71,7 +116,7 @@ app.post("/cadastra", function(requisicao, resposta){
 
 })
 
-app.post("/login", function(requisicao, resposta){
+app.post("/auto", function(requisicao, resposta){
     resposta.redirect("login.html")
 });
 
@@ -79,7 +124,7 @@ app.post("/login", function(requisicao, resposta){
 //     resposta.sendFile(__dirname + '/login.html');
 // });
 
-app.post('/auto', (requisicao, resposta) => {
+app.post('/login', (requisicao, resposta) => {
     const { login, senha } = requisicao.body;
 
     
@@ -88,4 +133,12 @@ app.post('/auto', (requisicao, resposta) => {
     } else {
         resposta.render('resposta2', { mensagem: 'Login ou senha incorreta, tente novamente...' });
     }
+});
+
+app.get('/cadastra',(requisicao, resposta)=> {
+    resposta.sendFile(path.join(__dirname, 'public', 'Cadastro.html'));
+});
+
+app.get('/login',(requisicao, resposta)=> {
+    resposta.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
