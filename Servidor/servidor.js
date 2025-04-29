@@ -23,6 +23,11 @@ console.log("Servidor rodando ...".rainbow);
 
 // Metódos e actions
 
+app.get('/',(requisicao,resposta) =>{
+    resposta.redirect("projects.html")
+
+})
+
 app.get("/inicio",function(requisicao, resposta){
     resposta.redirect("index.html")
 
@@ -81,6 +86,6 @@ app.post('/auto', (requisicao, resposta) => {
     if (usuario[login] && usuario[login] === senha) {
         resposta.render('resposta3', { mensagem: 'Login efetuado com sucesso!' });
     } else {
-        resposta.render('resposta2', { mensagem: 'Login inválido. Tente novamente.' });
+        resposta.render('resposta2', { mensagem: 'Login ou senha incorreta, tente novamente...' });
     }
 });
