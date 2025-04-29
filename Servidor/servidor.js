@@ -50,6 +50,8 @@ app.get("/for_ejs", function(requisicao, resposta){
     resposta.render("exemplo_for",{valor});
 })
 
+let usuario = {};
+
 app.post("/cadastra", function(requisicao, resposta){
     let nome = requisicao.body.nome;
     let login = requisicao.body.login;
@@ -59,6 +61,7 @@ app.post("/cadastra", function(requisicao, resposta){
     console.log(nome, login , senha, nasc)
     resposta.render('resposta1');
     
+    usuario[login] = senha;
 
 
 })
@@ -67,17 +70,17 @@ app.post("/login", function(requisicao, resposta){
     resposta.redirect("login.html")
 });
 
-app.get('/login', (requisicao, resposta) => {
-    resposta.sendFile(__dirname + '/Login.html');
-});
+// app.get('/login', (requisicao, resposta) => {
+//     resposta.sendFile(__dirname + '/login.html');
+// });
 
-app.post('/login', (requisicao, resposta) => {
+app.post('/auto', (requisicao, resposta) => {
     const { login, senha } = requisicao.body;
 
-    // Aqui você valida o login e a senha
-    if (login === 'admin' && senha === '1234') {
-        resposta.render('resposta', { mensagem: 'Login efetuado com sucesso!' });
+    
+    if (usuario[login] && usuario[login] === senha) {
+        resposta.render('resposta3', { mensagem: 'Login efetuado com sucesso!' });
     } else {
-        resposta.render('resposta', { mensagem: 'Login inválido. Tente novamente.' });
+        resposta.render('resposta2', { mensagem: 'Login inválido. Tente novamente.' });
     }
 });
