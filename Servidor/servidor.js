@@ -117,15 +117,17 @@ app.post("/cadastra", function(requisicao, resposta){
 
 })
 
-app.post("/auto", function(requisicao, resposta){
-    resposta.redirect("login.html")
-});
+// app.post("/login", function(requisicao, resposta){
+//     resposta.redirect("login.html")
+// });
 
 // app.get('/login', (requisicao, resposta) => {
 //     resposta.sendFile(__dirname + '/login.html');
 // });
 
-app.post('/login', (requisicao, resposta) => {
+app.use(express.urlencoded({ extended: true }));
+
+app.post("/login2", (requisicao, resposta) => {
     const { login, senha } = requisicao.body;
 
     
