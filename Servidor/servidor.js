@@ -11,6 +11,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true });
 
 var dbo = client.db("PassosFullStack");
 var usuarios = dbo.collection("usuarios");
+var posts12 = dbo.collection("posts12");
 
 
 
@@ -141,4 +142,49 @@ app.get('/cadastra',(requisicao, resposta)=> {
 
 app.get('/login',(requisicao, resposta)=> {
     resposta.sendFile(path.join(__dirname, 'public', 'login.html'));
+});
+
+app.post("/blog1", function(requisicao, resposta){
+    let titulo = requisicao.body.titulo;
+    let resumo = requisicao.body.resumo;
+    let conteudo = requisicao.body.conteudo;
+    
+
+    
+    // resposta.render('resposta4blog.ejs');
+
+    posts12.insertOne({ titulo: titulo, resumo: resumo, conteudo: conteudo}, function(err) {
+        if (err) {
+            resposta.send('Erro ao salvar post');
+            return;
+        }
+        // resposta.redirect('/blog');
+        resposta.render('resposta4blog.ejs');
+    });
+});
+   
+
+   
+
+app.get('/blog', function(requisicao, resposta) {
+    posts12.find().toArray(function(err, posts) {
+        if (err) {
+            resposta.send('Erro ao buscar posts');
+            return;
+        }
+        resposta.render('blog', { posts: posts });
+    });
+});
+
+
+app.get('/post', (requisicao, resposta) => {
+    resposta.sendFile(path.join(__dirname, 'public', 'blog', 'cadastrar_post.html'));
+});
+
+
+app.post('/blog1', (requisicao, resposta) => {
+    const { titulo, resumo, conteudo } = requisicao.body;
+
+    Post.create({ titulo, conteudo: resumo + ' - ' + conteudo, autor: 'Desconhecido' }) 
+        .then(() => resposta.redirect('/blog'));  
 });
