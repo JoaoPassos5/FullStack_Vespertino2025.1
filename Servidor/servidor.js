@@ -187,6 +187,6 @@ app.get('/post', (requisicao, resposta) => {
 app.post('/blog1', (requisicao, resposta) => {
     const { titulo, resumo, conteudo } = requisicao.body;
 
-    Post.create({ titulo, conteudo: resumo + ' - ' + conteudo, autor: 'Desconhecido' }) 
+    Post.create({ titulo, conteudo: resumo + ' - ' + conteudo}) 
         .then(() => resposta.redirect('/blog'));  
 });
