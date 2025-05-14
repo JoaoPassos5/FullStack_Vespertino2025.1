@@ -7,12 +7,14 @@ var mongodb = require("mongodb");
 
 const MongoClient = mongodb.MongoClient;
 const uri = 'mongodb+srv://jovifepassos:RjAeAeDQRkqgvcmR@passosfullstack.r6acicp.mongodb.net/?retryWrites=true&w=majority&appName=PassosFullStack'
-const client = new MongoClient(uri, { useNewUrlParser: true });
+// const client = new MongoClient(uri, { useNewUrlParser: true });
+const client = new MongoClient(uri);
 
 var dbo = client.db("PassosFullStack");
 var usuarios = dbo.collection("usuarios");
 var posts12 = dbo.collection("posts12");
 var usuarioscarros = dbo.collection("usuarioscarros");
+var carros = dbo.collection("carros");
 
 
 
@@ -264,29 +266,60 @@ app.post("/cadastrocarro", function(req, resp) {
 });
 
 app.post("/logincarro", function(req, res) {
-    const login = req.body.login;
-    const senha = req.body.senha;
+    var login = req.body.login;
+    var senha = req.body.senha;
 
-    // Verifica no banco se o usuário existe
+    // Busca o usuário no banco, com o login e a senha fornecidos
     usuarioscarros.findOne({ db_login: login, db_senha: senha }, function(err, usuario) {
-
         if (err) {
-            return res.send("Erro ao acessar o banco de dados.");
+            res.send("Erro ao acessar o banco de dados.");
+            return;
         }
 
         if (usuario) {
-            // Se o usuário foi encontrado, vamos buscar os carros dele
-            carros.find({ db_login: login, db_senha: senha }, function(err, carros) {
+            // Se o usuário for encontrado, buscar os carros dele
+            carros.find({ db_login: login }).toArray(function(err, carrosEncontrados) {
                 if (err) {
-                    return res.send("Erro ao acessar os carros.");
+                    res.send("Erro ao acessar os carros.");
+                    return;
                 }
 
-                // Passando os carros para o EJS
-                res.render("carros", { carro: carros });
+                // Passa os carros encontrados para a página EJS
+                res.render("carros", { carro: carrosEncontrados });
             });
         } else {
-            // Caso o login ou senha sejam incorretos
-            res.redirect("/logincarro");
+            // Caso o login ou senha estejam errados
+            res.redirect("/logincarro");  // Redireciona de volta para o login
         }
+    });
+});
+
+
+app.get('/carrocadastro', (requisicao, resposta) => {
+    resposta.sendFile(path.join(__dirname, 'public', 'Carro', 'terceiro.html'));
+});
+
+
+app.post("/caro", function(requisicao, resposta) {
+    let marca = requisicao.body.marca;        
+    let modelo = requisicao.body.modelo;      
+    let ano = requisicao.body.ano;           
+    let qnt = requisicao.body.qnt;            
+
+    // Salva os dados no banco
+    carros.insertOne({ marca: marca, modelo: modelo, ano: ano, qnt: qnt }, function(err) {
+        if (err) {
+            resposta.send('Erro ao salvar carro');
+            return;
+        }
+        carros.find().toArray(function(err, carrosArray) { 
+            if (err) {
+                resposta.send("Erro ao buscar carros.");
+                return;
+            }
+
+            // Renderiza a página carros.ejs com os carros encontrados
+            resposta.render('carros', { carro: carrosArray }); 
+        });
     });
 });
