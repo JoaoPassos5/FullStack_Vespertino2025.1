@@ -262,3 +262,31 @@ app.post("/cadastrocarro", function(req, resp) {
         }
     });
 });
+
+app.post("/logincarro", function(req, res) {
+    const login = req.body.login;
+    const senha = req.body.senha;
+
+    // Verifica no banco se o usuário existe
+    usuarioscarros.findOne({ db_login: login, db_senha: senha }, function(err, usuario) {
+
+        if (err) {
+            return res.send("Erro ao acessar o banco de dados.");
+        }
+
+        if (usuario) {
+            // Se o usuário foi encontrado, vamos buscar os carros dele
+            carros.find({ db_login: login, db_senha: senha }, function(err, carros) {
+                if (err) {
+                    return res.send("Erro ao acessar os carros.");
+                }
+
+                // Passando os carros para o EJS
+                res.render("carros", { carro: carros });
+            });
+        } else {
+            // Caso o login ou senha sejam incorretos
+            res.redirect("/logincarro");
+        }
+    });
+});

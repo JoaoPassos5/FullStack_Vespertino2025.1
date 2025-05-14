@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carros</title>
+    <meta charset="UTF-8">
+    
+    
+</head>
+<body>
+    <a href="/carrocadastro">
+        <button type="button">Cadastrar Carros</button>
+    </a>
+
+    <% carro.forEach(function(carro) { %>
+        <div class="post">
+            <h2><%= carro.marca %></h2>
+            <p><%= carro.modelo %></p>
+            <p><%= carro.ano %></p>
+            <p><%= carro.qnt %></p>
+        </div>
+    <% }); %>
+</body>
+</html>
