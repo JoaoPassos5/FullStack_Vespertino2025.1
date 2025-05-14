@@ -12,6 +12,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true });
 var dbo = client.db("PassosFullStack");
 var usuarios = dbo.collection("usuarios");
 var posts12 = dbo.collection("posts12");
+var usuarioscarros = dbo.collection("usuarioscarros");
 
 
 
@@ -232,3 +233,32 @@ app.post('/remover_usuario', function(requisicao, resposta){
     })
 
 })
+
+// --------------------------- CADASTRO---------------------------
+
+app.use(express.static(path.join(__dirname, 'public', 'Carro')));
+
+
+app.get('/logincarro', function(req, res) {
+    res.sendFile(path.join(__dirname, 'public','Carro', 'primeiro.html'));
+});
+
+
+app.post("/cadastrocarro", function(req, resp) {
+
+    let data = {
+        db_nome: req.body.nome,
+        db_login: req.body.login,
+        db_senha: req.body.senha,
+        db_nasc: req.body.nascimento
+    };
+
+    // Salva dados no banco
+    usuarioscarros.insertOne(data, function (err) {
+        if (err) {
+            resp.send("Erro ao cadastrar usuário!");
+        } else {
+            resp.redirect('/primeiro.html?mensagem=Usuário cadastrado com sucesso!');
+        }
+    });
+});
