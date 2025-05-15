@@ -265,6 +265,14 @@ app.post("/cadastrocarro", function(req, resp) {
     });
 });
 
+app.get("/back", function(req, res) {
+    res.sendFile(path.join(__dirname, 'public', 'Carro', 'quarto.html'));
+});
+
+app.get("/quarto", function(req, res) {
+    res.sendFile(path.join(__dirname, 'public', 'Carro', 'quarto.html'));
+});
+
 app.post("/logincarro", function(req, res) {
     var login = req.body.login;
     var senha = req.body.senha;
@@ -285,7 +293,7 @@ app.post("/logincarro", function(req, res) {
                 }
 
                 // Passa os carros encontrados para a página EJS
-                res.render("carros", { carro: carrosEncontrados });
+                res.redirect("/quarto");
             });
         } else {
             // Caso o login ou senha estejam errados
@@ -319,7 +327,17 @@ app.post("/caro", function(requisicao, resposta) {
             }
 
             // Renderiza a página carros.ejs com os carros encontrados
-            resposta.render('carros', { carro: carrosArray }); 
+            resposta.render('carros', { carros: carrosArray }); 
         });
+    });
+});
+
+app.get("/listar_carros", function(req, resp) {
+    carros.find().toArray(function(err, itens) {
+        if (err) {
+            resp.send("Erro ao buscar carros.");
+            return;
+        }
+        resp.render("carros.ejs", { carros: itens });
     });
 });

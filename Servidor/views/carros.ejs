@@ -3,30 +3,21 @@
 <head>
     <title>Carros</title>
     <meta charset="UTF-8">
-    
-    
+    <link href="/Blog/blog.css" rel="stylesheet">
 </head>
 <body>
-    <a href="/carrocadastro">
-        <button type="button">Cadastrar Carros</button>
-    </a>
-
-    <a href="/removecarro">
-        <button type="button">Remover Carros</button>
-    </a>
-
-    <a href="/atualizacarro">
-        <button type="button">Atualizar Carros</button>
-    </a>
+    
+  <a href="/back">
+        <button type="button">Voltar</button>
+  </a>
 
 
-    <% carro.forEach(function(carro) { %>
-        <div class="post">
-            <h2><%= carro.marca %></h2>
-            <p><%= carro.modelo %></p>
-            <p><%= carro.ano %></p>
-            <p><%= carro.qnt %></p>
-        </div>
-    <% }); %>
-</body>
-</html>
+<% for (var i = 0; i < carros.length; i++) { %>
+  <div id="item_lista">
+    <p>Marca: <%= carros[i].marca %></p>
+    <p>Modelo: <%= carros[i].modelo %></p>
+    <p>Ano: <%= carros[i].ano %></p>
+    <p>Quantidade Disponível: <%= carros[i].qnt %></p>
+    <br>
+  </div>
+<% } %>
