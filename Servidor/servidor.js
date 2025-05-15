@@ -9,6 +9,7 @@ const MongoClient = mongodb.MongoClient;
 const uri = 'mongodb+srv://jovifepassos:RjAeAeDQRkqgvcmR@passosfullstack.r6acicp.mongodb.net/?retryWrites=true&w=majority&appName=PassosFullStack'
 // const client = new MongoClient(uri, { useNewUrlParser: true });
 const client = new MongoClient(uri);
+const { ObjectId } = require('mongodb');
 
 var dbo = client.db("PassosFullStack");
 var usuarios = dbo.collection("usuarios");
@@ -340,4 +341,17 @@ app.get("/listar_carros", function(req, resp) {
         }
         resp.render("carros.ejs", { carros: itens });
     });
+});
+
+app.post("/removecarro", function(req, resp) {
+    try {
+        const id = req.body.id;
+        carros.deleteOne({_id: new ObjectId(id)}, function(err, result) {
+            if (err) console.error(err);
+            return resp.redirect('/quarto.html');
+        });
+    } catch (e) {
+        console.error('ID inválido:', e);
+        return resp.redirect('/quarto.html');
+    }
 });
