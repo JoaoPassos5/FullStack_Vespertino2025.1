@@ -9,7 +9,7 @@ const MongoClient = mongodb.MongoClient;
 const uri = 'mongodb+srv://jovifepassos:RjAeAeDQRkqgvcmR@passosfullstack.r6acicp.mongodb.net/?retryWrites=true&w=majority&appName=PassosFullStack'
 // const client = new MongoClient(uri, { useNewUrlParser: true });
 const client = new MongoClient(uri);
-const { ObjectId } = require('mongodb');
+const { ObjectId } = require("mongodb");
 
 var dbo = client.db("PassosFullStack");
 var usuarios = dbo.collection("usuarios");
@@ -343,15 +343,69 @@ app.get("/listar_carros", function(req, resp) {
     });
 });
 
-app.post("/removecarro", function(req, resp) {
-    try {
-        const id = req.body.id;
-        carros.deleteOne({_id: new ObjectId(id)}, function(err, result) {
-            if (err) console.error(err);
-            return resp.redirect('/quarto.html');
-        });
-    } catch (e) {
-        console.error('ID inválido:', e);
-        return resp.redirect('/quarto.html');
+app.post("/removecarro", (req, resp) => {
+  const id = req.body.id;
+
+  // Só continua se o ID for válido
+  if (ObjectId.isValid(id)) {
+    const objetoId = new ObjectId(id);
+
+    carros.deleteOne({ _id: objetoId }, (err, result) => {
+      if (err) {
+        console.error("Erro ao deletar:", err);
+      } else {
+        console.log("Carro removido com sucesso.");
+      }
+
+      return resp.redirect("/quarto.html");
+    });
+  } else {
+    console.log("ID inválido recebido:", id);
+    return resp.redirect("/quarto.html");
+  }
+});
+
+
+app.get("/quarto.html", function(req, res) {
+    carros.find().toArray(function(err, carrosArray) {
+        if (err) {
+            return res.send("Erro ao buscar carros.");
+        }
+
+        res.render("carros", { carros: carrosArray });
+    });
+});
+
+app.get('/atualizacarro2', (requisicao, resposta) => {
+    resposta.sendFile(path.join(__dirname, 'public', 'Carro', 'quinto.html'));
+});
+
+app.post("/atualizacarro", function(req, resp) {
+  
+  let dadosAntigos = {
+    marca: req.body.marca_antiga,
+    modelo: req.body.modelo_antigo,
+    ano: Date(req.body.ano_antigo),
+    qnt: Number(req.body.qnt_antiga)
+  };
+
+  
+  let novosDados = {
+    $set: {
+      marca: req.body.marca_nova,
+      modelo: req.body.modelo_novo,
+      ano: Date(req.body.ano_novo),
+      qnt: Number(req.body.qnt_nova)
     }
+  };
+
+  carros.updateOne(dadosAntigos, novosDados, function(err, result) {
+    if (err) {
+      console.error("Erro ao atualizar carro:", err);
+      return resp.render('quinto.html', { resposta: "Erro ao atualizar carro!" });
+    }
+    else{
+      return resp.render('carros.ejs', { resposta: "Carro atualizado com sucesso!" });
+    }
+  });
 });

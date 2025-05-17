@@ -13,16 +13,15 @@
 
 
 <% for (var i = 0; i < carros.length; i++) { %>
-  
-    <p>Marca: <%= carros[i].marca %></p>
-    <p>Modelo: <%= carros[i].modelo %></p>
-    <p>Ano: <%= carros[i].ano %></p>
-    <p>Quantidade Disponível: <%= carros[i].qnt %></p>
-    
-    <form action="/removecarro" method="post">
-      <input type="hidden" name="id" value="<%= carros._id %>">
-      <button type="submit">Remover</button>
+  <p>Marca: <%= carros[i].marca %></p>
+  <p>Modelo: <%= carros[i].modelo %></p>
+  <p>Ano: <%= carros[i].ano %></p>
+  <p>Quantidade Disponível: <%= carros[i].qnt %></p>
 
-    <br>
-  
+  <form action="/removecarro" method="post">
+    <input type="hidden" name="id" value="<%= carros[i]._id %>">
+    <button type="submit">Remover</button>
+  </form>
+
+  <br>
 <% } %>
