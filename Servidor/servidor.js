@@ -313,10 +313,10 @@ app.post("/caro", function(requisicao, resposta) {
     let marca = requisicao.body.marca;        
     let modelo = requisicao.body.modelo;      
     let ano = requisicao.body.ano;           
-    let qnt = requisicao.body.qnt;            
+    let qnt = Number(requisicao.body.qnt);            
 
     // Salva os dados no banco
-    carros.insertOne({ marca: marca, modelo: modelo, ano: ano, qnt: qnt }, function(err) {
+    carros.insertOne({ marca, modelo, ano, qnt }, function(err) {
         if (err) {
             resposta.send('Erro ao salvar carro');
             return;
@@ -366,15 +366,6 @@ app.post("/removecarro", (req, resp) => {
 });
 
 
-app.get("/quarto.html", function(req, res) {
-    carros.find().toArray(function(err, carrosArray) {
-        if (err) {
-            return res.send("Erro ao buscar carros.");
-        }
-
-        res.render("carros", { carros: carrosArray });
-    });
-});
 
 app.get('/atualizacarro2', (requisicao, resposta) => {
     resposta.sendFile(path.join(__dirname, 'public', 'Carro', 'quinto.html'));
@@ -385,16 +376,15 @@ app.post("/atualizacarro", function(req, resp) {
   let dadosAntigos = {
     marca: req.body.marca_antiga,
     modelo: req.body.modelo_antigo,
-    ano: Date(req.body.ano_antigo),
+    ano: new Date(req.body.ano_antigo),
     qnt: Number(req.body.qnt_antiga)
   };
 
-  
   let novosDados = {
     $set: {
       marca: req.body.marca_nova,
       modelo: req.body.modelo_novo,
-      ano: Date(req.body.ano_novo),
+      ano: new Date(req.body.ano_novo),
       qnt: Number(req.body.qnt_nova)
     }
   };
@@ -404,8 +394,44 @@ app.post("/atualizacarro", function(req, resp) {
       console.error("Erro ao atualizar carro:", err);
       return resp.render('quinto.html', { resposta: "Erro ao atualizar carro!" });
     }
-    else{
-      return resp.render('carros.ejs', { resposta: "Carro atualizado com sucesso!" });
+    else {
+      carros.find().toArray(function(err, listaDeCarros) {
+        if (err) {
+          console.error("Erro ao buscar carros:", err);
+          return resp.render('carros.ejs', { resposta: "Erro ao buscar carros!", carros: [] });
+        } 
+        else {
+          return resp.render('carros.ejs', { resposta: "Carro atualizado!", carros: listaDeCarros });
+        }
+      });
     }
+  });
+});
+
+app.post("/vendercarro", function(req, res) {
+  let id = req.body.id;
+
+  carros.findOne({ _id: new ObjectId(id) }, function(err, carro) {
+    if (err) return res.send("Erro ao buscar carro.");
+
+    if (carro.qnt > 0) {
+      carros.updateOne(
+      { _id: new ObjectId(id) },
+      { $inc: { qnt: -1 } },
+      function(erro2, resultado) {
+    console.log("Resultado da venda:", resultado);
+    if (erro2) {
+      console.error("Erro ao atualizar quantidade:", erro2);
+      return res.send("Erro ao vender o carro.");
+    }
+
+    if (resultado.modifiedCount === 0) {
+      console.log("Nenhum documento foi modificado.");
+      return res.send("Carro não encontrado ou quantidade já é 0.");
+    }
+
+    return res.redirect("/quarto.html");
+  }
+);}
   });
 });

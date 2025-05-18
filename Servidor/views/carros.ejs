@@ -23,5 +23,17 @@
     <button type="submit">Remover</button>
   </form>
 
+  
+ <% if (carros[i].qnt == 0) { %>
+  <p>Esgotado</p>
+ <% } else { %>
+  <form action="/vendercarro" method="post">
+    <input type="hidden" name="id" value="<%= carros[i]._id %>">
+    <button type="submit">Vender</button>
+  </form>
+ <% } %>
+
+
+
   <br>
 <% } %>
