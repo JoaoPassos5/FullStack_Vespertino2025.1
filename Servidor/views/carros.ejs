@@ -10,30 +10,35 @@
   <a href="/back">
         <button type="button">Voltar</button>
   </a>
+  <hr>
 
+  <% for (var i = 0; i < carros.length; i++) { %>
+    <p>Marca: <%= carros[i].marca %></p>
+    <p>Modelo: <%= carros[i].modelo %></p>
+    <p>Ano: <%= carros[i].ano %></p>
 
-<% for (var i = 0; i < carros.length; i++) { %>
-  <p>Marca: <%= carros[i].marca %></p>
-  <p>Modelo: <%= carros[i].modelo %></p>
-  <p>Ano: <%= carros[i].ano %></p>
-  <p>Quantidade Disponível: <%= carros[i].qnt %></p>
-
+    <p>Quantidade Disponível: 
+      <% if (carros[i].qnt == 0) { %>
+        Esgotado
+      <% } else { %>
+        <%= carros[i].qnt %>
+      <% } %>
+    </p>
+  
   <form action="/removecarro" method="post">
     <input type="hidden" name="id" value="<%= carros[i]._id %>">
     <button type="submit">Remover</button>
   </form>
-
   
- <% if (carros[i].qnt == 0) { %>
-  <p>Esgotado</p>
- <% } else { %>
-  <form action="/vendercarro" method="post">
-    <input type="hidden" name="id" value="<%= carros[i]._id %>">
-    <button type="submit">Vender</button>
-  </form>
- <% } %>
-
-
-
-  <br>
+  <% if (carros[i].qnt > 0) { %>
+    <form action="/vendercarro" method="post">
+      <input type="hidden" name="id" value="<%= carros[i]._id %>">
+      <button type="submit">Vender</button>
+    </form>
+  <% } %>
+  
+    <hr>
 <% } %>
+
+
+

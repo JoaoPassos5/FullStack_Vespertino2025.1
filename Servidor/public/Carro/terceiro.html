@@ -7,20 +7,28 @@
         
     </head>
     <body>
+        
     <form action="/caro" method="POST">
         <input type="hidden" name="login" value="<%= login %>">
 
         <input type="text" name="marca" placeholder="Marca" required>
         <input type="text" name="modelo" placeholder="Modelo" required>
-        <input type="date" name="ano" placeholder="Ano" required>
+        <input type="number" name="ano" placeholder="Ano" required>
         <input type="number" name="qnt" placeholder="Quantidade disponível" required>
 
         <button type="submit">Cadastrar</button>
     </form>
+     
+    <br><br>
+    
+    <a href="/back">
+        <button type="button">Voltar</button>
+  </a>
+  <br>
 </body>
 
   
-    </body>
+    
     
 
 </html>

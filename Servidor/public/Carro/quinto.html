@@ -6,17 +6,20 @@
         <link href="estilo.css" rel="stylesheet">
     </head>
     <body>
+        <a href="/back">
+            <button type="button">Voltar</button>
+      </a>        
 <form action="/atualizacarro" method="POST">
   <h3>Info Atual</h3>
   Marca: <input type="text" name="marca_antiga" required><br>
   Modelo: <input type="text" name="modelo_antigo" required><br>
-  Ano: <input type="date" name="ano_antigo" required><br>
+  Ano: <input type="number" name="ano_antigo" required><br>
   Quantidade: <input type="number" name="qnt_antiga" required><br>
 
   <h3>Novas informações</h3>
   Marca: <input type="text" name="marca_nova" required><br>
   Modelo: <input type="text" name="modelo_novo" required><br>
-  Ano: <input type="date" name="ano_novo" required><br>
+  Ano: <input type="number" name="ano_novo" required><br>
   Quantidade: <input type="number" name="qnt_nova" required><br>
 
   <button type="submit">Atualizar Carro</button>

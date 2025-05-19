@@ -312,7 +312,7 @@ app.get('/carrocadastro', (requisicao, resposta) => {
 app.post("/caro", function(requisicao, resposta) {
     let marca = requisicao.body.marca;        
     let modelo = requisicao.body.modelo;      
-    let ano = requisicao.body.ano;           
+    let ano = Number(requisicao.body.ano);           
     let qnt = Number(requisicao.body.qnt);            
 
     // Salva os dados no banco
@@ -376,7 +376,7 @@ app.post("/atualizacarro", function(req, resp) {
   let dadosAntigos = {
     marca: req.body.marca_antiga,
     modelo: req.body.modelo_antigo,
-    ano: new Date(req.body.ano_antigo),
+    ano: Number(req.body.ano_antigo),
     qnt: Number(req.body.qnt_antiga)
   };
 
@@ -384,7 +384,7 @@ app.post("/atualizacarro", function(req, resp) {
     $set: {
       marca: req.body.marca_nova,
       modelo: req.body.modelo_novo,
-      ano: new Date(req.body.ano_novo),
+      ano: Number(req.body.ano_novo),
       qnt: Number(req.body.qnt_nova)
     }
   };
